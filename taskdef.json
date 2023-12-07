@@ -1,42 +1,52 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:412699049661:task-definition/prasath_cohort_demo:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/cohort_demo_ui_task_definition:20",
     "containerDefinitions": [
         {
-            "name": "prasath_cohort_ecs_container",
+            "name": "cohort_demo_ecs_container",
             "image": "<IMAGE1_NAME>",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "prasath_cohort_ecs_container-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
-            "mountPoints": [],
+            "mountPoints": [
+                {
+                    "sourceVolume": "cohort_demo_ecs_container_volume",
+                    "containerPath": "/usr/share/nginx/html"
+                }
+            ],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/prasath_cohort_demo",
-                    "awslogs-region": "eu-north-1",
+                    "awslogs-group": "cohort_demo_ecs_ui_log_group_us-east-1",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             }
         }
     ],
-    "family": "prasath_cohort_demo",
-    "executionRoleArn": "arn:aws:iam::412699049661:role/ecsTaskExecutionRole",
+    "family": "cohort_demo_ui_task_definition",
+    "taskRoleArn": "arn:aws:iam::412699049661:role/cohort-demo-ecs-tas-role-us-east-1",
+    "executionRoleArn": "arn:aws:iam::412699049661:role/cohort-demo-ecs-task-execution-role-us-east-1",
     "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
+    "revision": 20,
+    "volumes": [
+        {
+            "name": "cohort_demo_ecs_container_volume",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-05ca6a7da40b1b44a",
+                "rootDirectory": "/",
+                "transitEncryption": "ENABLED",
+                "transitEncryptionPort": 2999
+            }
+        }
+    ],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
@@ -46,22 +56,25 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
+            "name": "ecs.capability.efsAuth"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
-            "name": "ecs.capability.execution-role-ecr-pull"
+            "name": "ecs.capability.efs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
             "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -74,10 +87,6 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-11-30T06:59:18.531Z",
-    "registeredBy": "arn:aws:iam::412699049661:user/Prasath-Admin"
+    "registeredAt": "2023-12-07T08:23:06.618Z",
+    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-ca28d782-ac4c-46b0-b594-1b2ba5157a95"
 }

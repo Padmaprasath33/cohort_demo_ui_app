@@ -5,7 +5,5 @@ Resources:
       Properties:
         TaskDefinition: "<TASK_DEFINITION>"
         LoadBalancerInfo:
-          ContainerName: "prasath_cohort_ecs_container"
+          ContainerName: "cohort_demo_ecs_container"
           ContainerPort: 80
-Hooks:
-  - AfterAllowTestTraffic: "arn:aws:lambda:eu-north-1:412699049661:function:AfterAllowTestTraffic" 
