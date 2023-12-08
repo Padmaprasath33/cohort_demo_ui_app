@@ -6,7 +6,7 @@ phases:
       nodejs: 18 
   pre_build:
     commands:
-      # Step 1: Login to AWS ECR
+      # Step 1: Login to AWS ECR 
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 412699049661.dkr.ecr.us-east-1.amazonaws.com
