@@ -7,5 +7,3 @@ Resources:
         LoadBalancerInfo:
           ContainerName: "cohort_demo_ecs_container"
           ContainerPort: 80
-Hooks:
-  - AfterAllowTestTraffic: "arn:aws:lambda:us-east-1:412699049661:function:AfterAllowTestTraffic" 
