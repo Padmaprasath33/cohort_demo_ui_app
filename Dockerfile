@@ -1,2 +1,2 @@
-FROM 412699049661.dkr.ecr.eu-north-1.amazonaws.com/nginx:latest
+FROM public.ecr.aws/nginx/nginx
 COPY index.html /usr/share/nginx/html
