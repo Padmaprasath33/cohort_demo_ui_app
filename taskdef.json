@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/cohort_demo_ui_task_definition:20",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/cohort_demo_ui_task_definition:22",
     "containerDefinitions": [
         {
             "name": "cohort_demo_ecs_container",
@@ -16,7 +16,7 @@
             "environment": [],
             "mountPoints": [
                 {
-                    "sourceVolume": "cohort_demo_ecs_container_volume",
+                    "sourceVolume": "cohort-demo-ecs-container-volume",
                     "containerPath": "/usr/share/nginx/html"
                 }
             ],
@@ -24,7 +24,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "cohort_demo_ecs_ui_log_group_us-east-1",
+                    "awslogs-group": "cohort-demo-ecs-ui-log-group",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -32,15 +32,15 @@
         }
     ],
     "family": "cohort_demo_ui_task_definition",
-    "taskRoleArn": "arn:aws:iam::412699049661:role/cohort-demo-ecs-tas-role-us-east-1",
-    "executionRoleArn": "arn:aws:iam::412699049661:role/cohort-demo-ecs-task-execution-role-us-east-1",
+    "taskRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-role",
+    "executionRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-execution-role",
     "networkMode": "awsvpc",
-    "revision": 20,
+    "revision": 22,
     "volumes": [
         {
-            "name": "cohort_demo_ecs_container_volume",
+            "name": "cohort-demo-ecs-container-volume",
             "efsVolumeConfiguration": {
-                "fileSystemId": "fs-05ca6a7da40b1b44a",
+                "fileSystemId": "fs-0273c7e2379f4ec0a",
                 "rootDirectory": "/",
                 "transitEncryption": "ENABLED",
                 "transitEncryptionPort": 2999
@@ -87,6 +87,20 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2023-12-07T08:23:06.618Z",
-    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-ca28d782-ac4c-46b0-b594-1b2ba5157a95"
+    "registeredAt": "2023-12-08T01:07:41.621Z",
+    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-0872c1ec-7e07-41b6-95e2-411578399d2e",
+    "tags": [
+        {
+            "key": "application",
+            "value": "cohort-demo"
+        },
+        {
+            "key": "project",
+            "value": "aws-proserv"
+        },
+        {
+            "key": "environment",
+            "value": "dev"
+        }
+    ]
 }
