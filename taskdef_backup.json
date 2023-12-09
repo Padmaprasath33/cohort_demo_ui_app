@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/2191420-cohort-demo-ui-task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/2191420-cohort-demo-ui-task-definition:9",
     "containerDefinitions": [
         {
             "name": "cohort_demo_ecs_container",
@@ -14,7 +14,12 @@
             ],
             "essential": true,
             "environment": [],
-            "mountPoints": [],
+            "mountPoints": [
+                {
+                    "sourceVolume": "2191420-cohort-demo-ecs-container-volume",
+                    "containerPath": "/usr/share/nginx/html"
+                }
+            ],
             "volumesFrom": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
@@ -30,8 +35,16 @@
     "taskRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-role",
     "executionRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-execution-role",
     "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
+    "revision": 9,
+    "volumes": [
+        {
+            "name": "2191420-cohort-demo-ecs-container-volume",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-0f0b9db9a974e4ea6",
+                "rootDirectory": "/"
+            }
+        }
+    ],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
@@ -41,10 +54,19 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "ecs.capability.efsAuth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
+            "name": "ecs.capability.efs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -63,8 +85,8 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2023-12-09T04:48:11.042Z",
-    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-83d67e45-bbf0-418f-858c-6e7fa77014ab",
+    "registeredAt": "2023-12-09T14:16:31.540Z",
+    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-ac1e9202-7143-4af9-a990-f3d3e8f14db4",
     "tags": [
         {
             "key": "application",
