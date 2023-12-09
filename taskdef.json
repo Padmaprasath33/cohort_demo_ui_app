@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/cohort_demo_ui_task_definition:31",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:412699049661:task-definition/2191420-cohort-demo-ui-task-definition:1",
     "containerDefinitions": [
         {
             "name": "cohort_demo_ecs_container",
@@ -19,18 +19,18 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "cohort-demo-ecs-ui-log-group",
+                    "awslogs-group": "2191420-cohort-demo-ecs-ui-log-group",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
         }
     ],
-    "family": "cohort_demo_ui_task_definition",
+    "family": "2191420-cohort-demo-ui-task-definition",
     "taskRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-role",
     "executionRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-execution-role",
     "networkMode": "awsvpc",
-    "revision": 31,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -63,8 +63,8 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2023-12-08T12:09:24.746Z",
-    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-4ce00fdb-f305-4f9b-bb39-27c909e14cff",
+    "registeredAt": "2023-12-09T04:48:11.042Z",
+    "registeredBy": "arn:aws:sts::412699049661:assumed-role/codebuild-cohort_demo-service-role/AWSCodeBuild-83d67e45-bbf0-418f-858c-6e7fa77014ab",
     "tags": [
         {
             "key": "application",
