@@ -40,7 +40,7 @@
         {
             "name": "2191420-cohort-demo-ecs-container-volume",
             "efsVolumeConfiguration": {
-                "fileSystemId": "fs-0f0b9db9a974e4ea6",
+                "fileSystemId": "fs-04be38e95a8a1117b",
                 "rootDirectory": "/"
             }
         }
