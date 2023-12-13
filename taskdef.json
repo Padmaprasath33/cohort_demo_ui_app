@@ -32,8 +32,8 @@
         }
     ],
     "family": "2191420-cohort-demo-ui-task-definition",
-    "taskRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-role",
-    "executionRoleArn": "arn:aws:iam::412699049661:role/2191420-cohort-demo-ecs-task-execution-role",
+    "taskRoleArn": "arn:aws:iam::500452054617:role/2191420-cohort-demo-ecs-task-role",
+    "executionRoleArn": "arn:aws:iam::500452054617:role/2191420-cohort-demo-ecs-task-execution-role",
     "networkMode": "awsvpc",
     "revision": 9,
     "volumes": [
