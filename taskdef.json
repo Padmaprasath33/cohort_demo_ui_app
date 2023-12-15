@@ -14,7 +14,12 @@
             ],
             "essential": true,
             "environment": [],
-            "mountPoints": [],
+            "mountPoints": [
+                {
+                    "sourceVolume": "2191420-cohort-demo-ecs-container-volume",
+                    "containerPath": "/usr/share/nginx/html"
+                }
+            ],
             "volumesFrom": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
@@ -31,7 +36,15 @@
     "executionRoleArn": "arn:aws:iam::500452054617:role/2191420-cohort-demo-ecs-task-execution-role",
     "networkMode": "awsvpc",
     "revision": 1,
-    "volumes": [],
+    "volumes": [
+        {
+            "name": "2191420-cohort-demo-ecs-container-volume",
+            "efsVolumeConfiguration": {
+                "fileSystemId": "fs-04be38e95a8a1117b",
+                "rootDirectory": "/"
+            }
+        }
+    ],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
